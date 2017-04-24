@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { HelloWorldPage } from '../helloWorld/helloWorld';
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
@@ -11,4 +13,10 @@ export class ContactPage {
 
   }
 
+  goHello() {
+    this.navCtrl.push(HelloWorldPage, {
+
+    });
+  }
 }
+
