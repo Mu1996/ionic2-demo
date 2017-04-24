@@ -9,5 +9,19 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Hello World !!!</ion-list-header>
+    <ion-badge item-right>260k</ion-badge>
+    <button ion-button (click)="goBack()">go back contact</button>
+    <button ion-button (click)="presentActionSheet()">actionSheet</button>
+    <button ion-button (click)="showAlert()">showAlert</button>
+    <button ion-button (click)="showPrompt()">showPrompt</button>
+    <button ion-button (click)="showConfirm()">showConfirm</button>
+    <ion-card>
+      <ion-card-header>
+        Header
+      </ion-card-header>
+      <ion-card-content>
+        The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

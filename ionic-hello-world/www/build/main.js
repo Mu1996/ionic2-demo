@@ -40676,8 +40676,8 @@ function SplitPane_tsickle_Closure_declarations() {
 /* unused harmony reexport VirtualScrollModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__components_action_sheet_action_sheet__ = __webpack_require__(52);
 /* unused harmony reexport ActionSheet */
-/* unused harmony reexport ActionSheetController */
-/* unused harmony reexport AlertController */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__components_action_sheet_action_sheet_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_5__components_alert_alert_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__components_alert_alert__ = __webpack_require__(54);
 /* unused harmony reexport Alert */
 /* unused harmony reexport App */
@@ -40872,7 +40872,7 @@ function SplitPane_tsickle_Closure_declarations() {
 /* unused harmony reexport setupConfig */
 /* unused harmony reexport ConfigToken */
 /* unused harmony reexport DomController */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_22__platform_platform__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_22__platform_platform__["a"]; });
 /* unused harmony reexport setupPlatform */
 /* unused harmony reexport Haptic */
 /* unused harmony reexport DeepLinker */
@@ -104554,7 +104554,7 @@ var MyApp = (function () {
 MyApp = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({template:/*ion-inline-start:"/Users/muyonghui/ionic2-demo/ionic-hello-world/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/muyonghui/ionic2-demo/ionic-hello-world/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
@@ -114236,19 +114236,106 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HelloWorldPage = (function () {
-    function HelloWorldPage(navCtrl) {
+    function HelloWorldPage(navCtrl, actionSheetCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.alertCtrl = alertCtrl;
     }
+    HelloWorldPage.prototype.goBack = function () {
+        this.navCtrl.pop();
+    };
+    HelloWorldPage.prototype.presentActionSheet = function () {
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Modify your album',
+            buttons: [
+                {
+                    text: 'Destructive',
+                    role: 'destructive',
+                    handler: function () {
+                        console.log('Destructive clicked');
+                    }
+                }, {
+                    text: 'Archive',
+                    handler: function () {
+                        console.log('Archive clicked');
+                    }
+                }, {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    HelloWorldPage.prototype.showAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'New Friend!',
+            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    HelloWorldPage.prototype.showPrompt = function () {
+        var prompt = this.alertCtrl.create({
+            title: 'Login',
+            message: "Enter a name for this new album you're so keen on adding",
+            inputs: [
+                {
+                    name: 'title',
+                    placeholder: 'Title'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function (data) {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Save',
+                    handler: function (data) {
+                        console.log('Saved clicked');
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    HelloWorldPage.prototype.showConfirm = function () {
+        var confirm = this.alertCtrl.create({
+            title: 'Use this lightsaber?',
+            message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+            buttons: [
+                {
+                    text: 'Disagree',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Agree',
+                    handler: function () {
+                        console.log('Agree clicked');
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
     return HelloWorldPage;
 }());
 HelloWorldPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'helloworld',template:/*ion-inline-start:"/Users/muyonghui/ionic2-demo/ionic-hello-world/src/pages/helloWorld/helloWorld.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Hello World\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Hello World !!!</ion-list-header>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/muyonghui/ionic2-demo/ionic-hello-world/src/pages/helloWorld/helloWorld.html"*/
+        selector: 'helloworld',template:/*ion-inline-start:"/Users/muyonghui/ionic2-demo/ionic-hello-world/src/pages/helloWorld/helloWorld.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Hello World\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Hello World !!!</ion-list-header>\n    <ion-badge item-right>260k</ion-badge>\n    <button ion-button (click)="goBack()">go back contact</button>\n    <button ion-button (click)="presentActionSheet()">actionSheet</button>\n    <button ion-button (click)="showAlert()">showAlert</button>\n    <button ion-button (click)="showPrompt()">showPrompt</button>\n    <button ion-button (click)="showConfirm()">showConfirm</button>\n    <ion-card>\n      <ion-card-header>\n        Header\n      </ion-card-header>\n      <ion-card-content>\n        The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.\n      </ion-card-content>\n    </ion-card>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/muyonghui/ionic2-demo/ionic-hello-world/src/pages/helloWorld/helloWorld.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ActionSheetController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* AlertController */]) === "function" && _c || Object])
 ], HelloWorldPage);
 
-var _a;
+var _a, _b, _c;
 //# sourceMappingURL=helloWorld.js.map
 
 /***/ })
