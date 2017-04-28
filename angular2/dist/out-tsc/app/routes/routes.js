@@ -16,6 +16,7 @@ export var routes = [
     { path: 'maintenance', component: MaintenanceComponent },
     { path: '404', component: Error404Component },
     { path: '500', component: Error500Component },
+    // lazy-loaded routes
     {
         path: '',
         component: LayoutComponent,
