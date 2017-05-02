@@ -8,10 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
+import { SystemService } from '../../../core/system/system.service';
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(systemService) {
+        this.systemService = systemService;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.systemService.getUser().then(function (user) { return _this.str = user; });
     };
     return HomeComponent;
 }());
@@ -21,7 +25,7 @@ HomeComponent = __decorate([
         templateUrl: './home.component.html',
         styleUrls: ['./home.component.scss']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [SystemService])
 ], HomeComponent);
 export { HomeComponent };
 //# sourceMappingURL=/Users/muyonghui/ionic2-demo/angular2/src/app/routes/home/home/home.component.js.map

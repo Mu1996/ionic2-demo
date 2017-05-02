@@ -15,6 +15,7 @@ import { SettingsService } from './settings/settings.service';
 import { ThemesService } from './themes/themes.service';
 import { TranslatorService } from './translator/translator.service';
 import { MenuService } from './menu/menu.service';
+import { SystemService } from './system/system.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 var CoreModule = (function () {
     function CoreModule(parentModule) {
@@ -29,7 +30,8 @@ CoreModule = __decorate([
             SettingsService,
             ThemesService,
             TranslatorService,
-            MenuService
+            MenuService,
+            SystemService
         ],
         declarations: [],
         exports: []

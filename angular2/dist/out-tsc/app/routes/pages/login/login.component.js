@@ -9,13 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { SettingsService } from '../../../core/settings/settings.service';
+import { SystemService } from '../../../core/system/system.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { Router } from "@angular/router";
 var LoginComponent = (function () {
-    function LoginComponent(settings, fb, _router) {
+    function LoginComponent(settings, fb, _router, systemService) {
         this.settings = settings;
         this._router = _router;
+        this.systemService = systemService;
         this.valForm = fb.group({
             'email': [null, Validators.compose([Validators.required, CustomValidators.email])],
             'password': [null, Validators.required]
@@ -33,6 +35,7 @@ var LoginComponent = (function () {
         }
     };
     LoginComponent.prototype.ngOnInit = function () {
+        this.systemService.setUser("200");
     };
     return LoginComponent;
 }());
@@ -42,7 +45,7 @@ LoginComponent = __decorate([
         templateUrl: './login.component.html',
         styleUrls: ['./login.component.scss']
     }),
-    __metadata("design:paramtypes", [SettingsService, FormBuilder, Router])
+    __metadata("design:paramtypes", [SettingsService, FormBuilder, Router, SystemService])
 ], LoginComponent);
 export { LoginComponent };
 //# sourceMappingURL=/Users/muyonghui/ionic2-demo/angular2/src/app/routes/pages/login/login.component.js.map
