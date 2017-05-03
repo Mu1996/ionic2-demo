@@ -29,6 +29,10 @@ app.use(express.static(path.join(__dirname, 'public/www')));
 
 //app访问预处理中间件
 app.use(function (req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*"); //允许哪些url可以跨域请求到本域
+    res.setHeader("Access-Control-Allow-Methods","GET,POST"); //允许的请求方法，一般是GET,POST,PUT,DELETE,OPTIONS
+    res.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type,Token"); //允许哪些请求头可以跨域
+
 
     res.error = function (errorCode, errorReason) {
         var restResult = new RestResult();
