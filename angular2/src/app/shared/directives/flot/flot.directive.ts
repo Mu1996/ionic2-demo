@@ -19,7 +19,7 @@ export class FlotDirective implements OnInit, OnChanges, OnDestroy {
 
     @Output() ready = new EventEmitter();
 
-    constructor(private el: ElementRef) {
+    constructor(public el: ElementRef) {
         this.element = $(this.el.nativeElement);
 
         if (!$.plot) {

@@ -2,24 +2,24 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from 'ng2-translate/ng2-translate';
+import { TranslateModule } from '@ngx-translate/core';
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 
-import { AccordionModule } from 'ng2-bootstrap/accordion';
-import { AlertModule } from 'ng2-bootstrap/alert';
-import { ButtonsModule } from 'ng2-bootstrap/buttons';
-import { CarouselModule } from 'ng2-bootstrap/carousel';
-import { CollapseModule } from 'ng2-bootstrap/collapse';
-import { DropdownModule } from 'ng2-bootstrap/dropdown';
-import { ModalModule } from 'ng2-bootstrap/modal';
-import { PaginationModule } from 'ng2-bootstrap/pagination';
-import { ProgressbarModule } from 'ng2-bootstrap/progressbar';
-import { RatingModule } from 'ng2-bootstrap/rating';
-import { TabsModule } from 'ng2-bootstrap/tabs';
-import { TimepickerModule } from 'ng2-bootstrap/timepicker';
-import { TooltipModule } from 'ng2-bootstrap/tooltip';
-import { TypeaheadModule } from 'ng2-bootstrap/typeahead';
-import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { FlotDirective } from './directives/flot/flot.directive';
 import { SparklineDirective } from './directives/sparkline/sparkline.directive';
@@ -44,7 +44,7 @@ import { JqcloudDirective } from './directives/jqcloud/jqcloud.directive';
         CarouselModule.forRoot(),
         CollapseModule.forRoot(),
         DatepickerModule.forRoot(),
-        DropdownModule.forRoot(),
+        BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         PaginationModule.forRoot(),
         ProgressbarModule.forRoot(),
@@ -80,7 +80,7 @@ import { JqcloudDirective } from './directives/jqcloud/jqcloud.directive';
         CarouselModule,
         CollapseModule,
         DatepickerModule,
-        DropdownModule,
+        BsDropdownModule,
         ModalModule,
         PaginationModule,
         ProgressbarModule,

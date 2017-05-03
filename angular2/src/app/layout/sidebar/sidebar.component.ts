@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
     menuItems: Array<any>;
     router: Router;
 
-    constructor(private menu: MenuService, public settings: SettingsService, private injector: Injector) {
+    constructor(public menu: MenuService, public settings: SettingsService, public injector: Injector) {
 
         this.menuItems = menu.getMenu();
 

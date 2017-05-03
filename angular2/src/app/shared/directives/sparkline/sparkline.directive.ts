@@ -9,10 +9,10 @@ export class SparklineDirective implements OnInit, OnDestroy {
     @Input() sparkline;
 
     // generate a unique resize event so we can detach later
-    private resizeEventId = 'resize.sparkline' + 1324;
-    private $element;
+    public resizeEventId = 'resize.sparkline' + 1324;
+    public $element;
 
-    constructor(private el: ElementRef) {
+    constructor(public el: ElementRef) {
         this.$element = $(el.nativeElement);
     }
 

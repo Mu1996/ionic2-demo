@@ -12,7 +12,7 @@ export class EasypiechartDirective implements OnInit, OnChanges {
      * default easy pie chart options
      * @type {Object}
      */
-    private defaultOptions = {
+    public defaultOptions = {
         barColor: '#ef1e25',
         trackColor: '#f9f9f9',
         scaleColor: '#dfe0e0',
@@ -27,11 +27,11 @@ export class EasypiechartDirective implements OnInit, OnChanges {
         }
     };
 
-    private pieChart: any;
+    public pieChart: any;
     @Input() percent;
     @Input() options;
 
-    constructor(private element: ElementRef) {
+    constructor(public element: ElementRef) {
         this.percent = this.percent || 0;
         this.options = $.extend({}, this.defaultOptions, this.options);
     }

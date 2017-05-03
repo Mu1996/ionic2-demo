@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     isNavSearchVisible: boolean;
     @ViewChild('fsbutton') fsbutton;  // the fullscreen button
 
-    constructor(private menu: MenuService, private userblockService: UserblockService, private settings: SettingsService) {
+    constructor(public menu: MenuService, public userblockService: UserblockService, public settings: SettingsService) {
 
         // show only a few items on demo
         this.menuItems = menu.getMenu().slice(0,4); // for horizontal layout

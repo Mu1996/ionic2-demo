@@ -2,7 +2,7 @@
      Component: button-extra
  ========================================================================== */
 
-// 
+//
 // Extension for Bootstrap buttons
 // ------------------------------------
 
@@ -56,7 +56,7 @@
   font-size: 18px;
 }
 
-// Button square 
+// Button square
 
 .btn-square {
   border-radius: 0;
@@ -136,7 +136,7 @@ $btn-fw-lg:       140px;
 
 
 // Button Circle
-// ----------------------------------- 
+// -----------------------------------
 
 .btn-circle {
   $sz: 35px;
@@ -179,3 +179,5 @@ $btn-fw-lg:       140px;
     color: #fff;
   }
 }
+
+.btn-info > .text-info { color: #fff !important; }

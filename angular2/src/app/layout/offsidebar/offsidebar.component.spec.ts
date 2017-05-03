@@ -2,7 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { OffsidebarComponent } from './offsidebar.component';
-import { TranslateService, TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpModule, Http } from '@angular/http';
 
 import { SettingsService } from '../../core/settings/settings.service';
@@ -17,10 +17,13 @@ describe('Component: Offsidebar', () => {
         TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot({
-                    provide: TranslateLoader,
-                    useFactory: (createTranslateLoader),
-                    deps: [Http]
+                    loader: {
+                        provide: TranslateLoader,
+                        useFactory: (createTranslateLoader),
+                        deps: [Http]
+                    }
                 }),
+                HttpModule,
                 SharedModule
             ],
             providers: [SettingsService, ThemesService, TranslatorService]

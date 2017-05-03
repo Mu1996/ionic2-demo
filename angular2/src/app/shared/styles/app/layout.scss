@@ -122,8 +122,11 @@ app-root, .wrapper {
     }
   }
 }
-.modal-open .wrapper {
-  z-index: 0;
+
+.modal-open .wrapper > section {
+  z-index: inherit;
+  transform: none !important;
+  -webkit-transform: none !important;
 }
 
 // Page main content

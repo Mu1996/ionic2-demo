@@ -14,7 +14,7 @@ export class VectormapDirective implements OnInit {
 
     $element: any;
 
-    constructor(private element: ElementRef) { }
+    constructor(public element: ElementRef) { }
 
     ngOnInit() {
 

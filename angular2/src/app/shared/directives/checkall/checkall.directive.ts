@@ -6,7 +6,7 @@ declare var $: any;
 })
 export class CheckallDirective {
 
-    constructor(private el: ElementRef) {
+    constructor(public el: ElementRef) {
         let $element = $(el.nativeElement);
 
         $element.on('change', function() {

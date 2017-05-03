@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class TranslatorService {
 
-    defaultLanguage: string = 'en';
-    availablelangs: any;
+    private defaultLanguage: string = 'en';
 
-    constructor(private translate: TranslateService) {
-        // this language will be used as a fallback when a translation isn't found in the current language
-        translate.setDefaultLang(this.defaultLanguage);
+    private availablelangs = [
+        { code: 'en', text: 'English' },
+        { code: 'es_AR', text: 'Spanish' }
+    ];
 
-        this.availablelangs = [
-            { code: 'en', text: 'English' },
-            { code: 'es_AR', text: 'Spanish' }
-        ];
+    constructor(public translate: TranslateService) {
+
+        if (!translate.getDefaultLang())
+            translate.setDefaultLang(this.defaultLanguage);
 
         this.useLanguage();
 
     }
 
-    useLanguage(lang: string = this.defaultLanguage) {
-        this.translate.use(lang);
+    useLanguage(lang: string = null) {
+        this.translate.use(lang || this.translate.getDefaultLang());
     }
 
     getAvailableLanguages() {

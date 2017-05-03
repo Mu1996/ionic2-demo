@@ -12,7 +12,7 @@ export class NavsearchComponent implements OnInit, OnChanges {
     @Output() onclose = new EventEmitter<boolean>();
     term: string;
 
-    constructor(private elem: ElementRef) { }
+    constructor(public elem: ElementRef) { }
 
     ngOnInit() {
         $(document)

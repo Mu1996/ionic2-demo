@@ -9,7 +9,7 @@ export class NowDirective implements OnInit, OnDestroy {
     @Input() format;
     intervalId;
 
-    constructor(private element: ElementRef) { }
+    constructor(public element: ElementRef) { }
 
     ngOnInit() {
         this.updateTime();

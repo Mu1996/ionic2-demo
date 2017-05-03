@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { TranslateService, TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpModule, Http } from '@angular/http';
 
 import { TranslatorService } from './translator.service';
@@ -11,10 +11,13 @@ describe('Service: Translator', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
+                HttpModule,
                 TranslateModule.forRoot({
-                    provide: TranslateLoader,
-                    useFactory: (createTranslateLoader),
-                    deps: [Http]
+                    loader: {
+                        provide: TranslateLoader,
+                        useFactory: (createTranslateLoader),
+                        deps: [Http]
+                    }
                 })
             ],
             providers: [TranslatorService]

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ColorsService {
 
-    private APP_COLORS = {
+    APP_COLORS = {
         'primary': '#5d9cec',
         'success': '#27c24c',
         'info': '#23b7e5',

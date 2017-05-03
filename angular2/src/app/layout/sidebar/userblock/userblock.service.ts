@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserblockService {
-    private userBlockVisible: boolean;
+    public userBlockVisible: boolean;
     constructor() {
         // initially visible
         this.userBlockVisible  = true;
