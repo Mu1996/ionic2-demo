@@ -3,6 +3,7 @@ import {SettingsService} from '../../../core/settings/settings.service';
 import {SystemService} from '../../../core/system/system.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {CustomValidators} from 'ng2-validation';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -15,10 +16,10 @@ export class LoginComponent implements OnInit {
   test: any;
   errorMessage: any;
 
-  constructor(public settings: SettingsService, fb: FormBuilder, private system: SystemService) {
+  constructor(public settings: SettingsService, fb: FormBuilder, private system: SystemService,private router:Router) {
 
     this.valForm = fb.group({
-      'email': [null, Validators.compose([Validators.required, CustomValidators.email])],
+      'mobile': [null, Validators.compose([Validators.required])],
       'password': [null, Validators.required]
     });
 
@@ -30,8 +31,19 @@ export class LoginComponent implements OnInit {
       this.valForm.controls[c].markAsTouched();
     }
     if (this.valForm.valid) {
-      console.log('Valid!');
-      console.log(value);
+      this.system.login(value.mobile,value.password)
+        .subscribe(
+          success => {
+            let result:any;
+            result = <any>success;
+            if (result.code == 0){
+              this.router.navigate(['/home']);
+            }else{
+              this.errorMessage = result.errorReason;
+            }
+          },
+          error => this.errorMessage = <any>error,
+        );
     }
   }
 

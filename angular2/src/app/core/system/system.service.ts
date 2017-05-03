@@ -5,10 +5,27 @@ import { hostip, handleError, extractData } from '../config';
 
 @Injectable()
 export class SystemService {
-  private testUrl = 'http://localhost:3000/';
+
+  user: any;
 
 
   constructor(private http: Http) {
+  }
+
+
+
+  login(moblie,password): Observable<String> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    let param = {
+      mobile: moblie,
+      password: password,
+    };
+
+    return this.http.post(hostip+"iv1/user/login",param)
+      .map(extractData)
+      .catch(handleError);
   }
 
   getHeroes(): Promise<String> {
