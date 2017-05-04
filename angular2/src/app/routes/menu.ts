@@ -10,7 +10,14 @@ const headingMain = {
     heading: true
 };
 
+const profile = {
+  text: '个人中心',
+  link: '/profile',
+  icon: 'icon-user'
+};
+
 export const menu = [
     headingMain,
-    Home
+    Home,
+    profile
 ];

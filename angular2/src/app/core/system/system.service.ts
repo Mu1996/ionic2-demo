@@ -7,9 +7,53 @@ import { hostip, handleError, extractData } from '../config';
 export class SystemService {
 
   user: any;
+  uid: any;
+  loginToken: any;
+  school: any;
+  profile: any;
+  courseClassId: any;
+  destUrl: any;
+  redirectFlag: any;
 
 
   constructor(private http: Http) {
+  }
+
+  logout() {
+    this.loginToken = "";
+  }
+
+  getUser(){
+    let userCache = null;
+    if (localStorage.user) {
+      userCache = JSON.parse(localStorage.user);
+    } else {
+      userCache = JSON.parse(sessionStorage.user);
+    }
+
+    //判断是否存在用户缓存
+    if(this.user){
+      //判断本地缓存和session或者localstorage里面的用户信息是否相同
+      if(this.user._id != this.user._id){
+        this.user = userCache;
+      }
+    }else{
+      this.user = userCache;
+    }
+    return this.user;
+  }
+
+  setUser(newUser) {
+    this.user = newUser;
+    localStorage.user = JSON.stringify(newUser);
+    sessionStorage.user = JSON.stringify(newUser);
+
+  }
+
+  setLoginToken (newLoginToken) {
+    this.loginToken = newLoginToken;
+    sessionStorage.loginToken = this.loginToken;
+    localStorage.loginToken = this.loginToken;
   }
 
 

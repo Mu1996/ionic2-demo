@@ -9,6 +9,7 @@ import { SystemService } from './system/system.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { hostip, handleError, extractData } from './config';
+import {HelloworldService} from "./helloworld/helloworld.service";
 
 @NgModule({
     imports: [
@@ -17,11 +18,12 @@ import { hostip, handleError, extractData } from './config';
 
     ],
     providers: [
-        SettingsService,
-        ThemesService,
-        TranslatorService,
-        MenuService,
-        SystemService,
+      SettingsService,
+      ThemesService,
+      TranslatorService,
+      MenuService,
+      SystemService,
+      HelloworldService
 
     ],
     declarations: [

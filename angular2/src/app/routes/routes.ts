@@ -21,13 +21,14 @@ export const routes = [
   { path: '500', component: Error500Component },
   { path: '', redirectTo: 'login', pathMatch: 'full'},
     {
-        path: '',
-        component: LayoutComponent,
-        children: [
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', loadChildren: './home/home.module#HomeModule' }
-        ]
-    },
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', loadChildren: './home/home.module#HomeModule' },
+      { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' }
+    ]
+  },
 
     // Not found
     { path: '**', redirectTo: '404' }

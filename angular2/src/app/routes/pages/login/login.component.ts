@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   test: any;
   errorMessage: any;
 
-  constructor(public settings: SettingsService, fb: FormBuilder, private system: SystemService,private router:Router) {
+  constructor(public settings: SettingsService, fb: FormBuilder, private systemService: SystemService,private router:Router) {
 
     this.valForm = fb.group({
       'mobile': [null, Validators.compose([Validators.required])],
@@ -31,12 +31,15 @@ export class LoginComponent implements OnInit {
       this.valForm.controls[c].markAsTouched();
     }
     if (this.valForm.valid) {
-      this.system.login(value.mobile,value.password)
+      this.systemService.login(value.mobile,value.password)
         .subscribe(
           success => {
             let result:any;
-            result = <any>success;
+            result = success;
             if (result.code == 0){
+              this.systemService.setUser(result.returnValue.user);
+              this.systemService.setUser(result.returnValue.user);
+              this.systemService.setUser(result.returnValue.user);
               this.router.navigate(['/home']);
             }else{
               this.errorMessage = result.errorReason;
@@ -50,19 +53,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
 
-    this.system.postTest()
-      .subscribe(
-        success => {
-          let result:any;
-          result = <any>success;
-          if (result.code == 0){
-            this.test = result.returnValue;
-          }else{
-            this.errorMessage = result.errorReason;
-          }
-        },
-        error => this.errorMessage = <any>error,
-      );
+    // this.systemService.postTest()
+    //   .subscribe(
+    //     success => {
+    //       let result:any;
+    //       result = <any>success;
+    //       if (result.code == 0){
+    //         this.test = result.returnValue;
+    //       }else{
+    //         this.errorMessage = result.errorReason;
+    //       }
+    //     },
+    //     error => this.errorMessage = <any>error,
+    //   );
   }
 
 }

@@ -10,6 +10,7 @@ const ExtractData = (res: Response | any)=> {
   let body = res.json();
     return body || { };
 };
+
 const HandleError = (error: Response | any) => {
   // In a real world app, you might use a remote logging infrastructure
   let errMsg: string;
